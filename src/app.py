@@ -12,9 +12,12 @@ class App(object):
 		self.am = AudioManager()
 
 	def run(self):
-		print "playing.."
+		"""
+		run the main program loop
+		"""
+
 		for i in range(self.am.get_num_clips()):
 			self.am.play(i)
 			sleep(0.5)
+
 		sleep(10)
-		print "played"
