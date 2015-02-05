@@ -1,4 +1,3 @@
-import pyglet
 from time import sleep
 from .audio_manager import AudioManager
 
@@ -15,9 +14,8 @@ class App(object):
 		"""
 		run the main program loop
 		"""
-
 		for i in range(self.am.get_num_clips()):
 			self.am.play(i)
 			sleep(0.5)
 
-		sleep(10)
+		sleep(5)

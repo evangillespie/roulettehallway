@@ -1,4 +1,5 @@
-import pyglet
+import pygame
+from time import sleep
 
 __author__ = ('Evan Gillespie',)
 
@@ -12,6 +13,9 @@ class AudioManager(object):
 		"""
 		load all the audio files into memory to be used later
 		"""
+		pygame.mixer.pre_init()
+		pygame.init()
+
 		folder_path = "assets/audio/"
 		filenames = [
 			"ahem_x.wav",
@@ -24,14 +28,10 @@ class AudioManager(object):
 			"ice_cream_truck.wav"
 		]
 
-
 		self.clips = []
 		for f in filenames:
 			self.clips.append(
-				pyglet.resource.media(
-					folder_path + f,
-					streaming=False
-				)
+				pygame.mixer.Sound(file=folder_path+f)
 			)
 
 
