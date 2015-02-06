@@ -21,7 +21,7 @@ class AudioManager(object):
 		self.clips = []
 		for f in filenames:
 			self.clips.append(
-				pygame.mixer.Sound(file=folder_path+f)
+				pygame.mixer.Sound(folder_path+f)
 			)
 
 
