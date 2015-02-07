@@ -1,6 +1,7 @@
 import RPi.GPIO as gpio
 from time import sleep
 
+from .config import pins
 from .audio_manager import AudioManager
 
 __author__ = ("Evan Gillespie",)
@@ -14,14 +15,17 @@ class App(object):
 
 		gpio.setmode(gpio.BCM)
 
-		gpio.setup(23, gpio.OUT)
-		gpio.setup(4, gpio.IN, pull_up_down=gpio.PUD_UP)
+		for pin in pins['doors']:
+			gpio.setup(p, gpio.IN, pull_up_down=gpio.PUD_UP)
+
+		for name, pin in pins['outputs'].iteritems():
+			gpio.setup(pin, gpio.OUT)
 	
 	def run(self):
 		"""
 		run the main program loop
 		"""
-		
+		# infinite program loop
 		while True:
-			gpio.output(23, gpio.input(4))
-			sleep(0.1)
+			pass
+			sleep (1)

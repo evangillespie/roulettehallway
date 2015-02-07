@@ -11,3 +11,19 @@ filenames = [
 	"helicopter.wav",
 	"ice_cream_truck.wav"
 ]
+
+pins = {
+	"doors": [
+		4,
+		5,
+		6,
+		16,
+		17,
+		18,
+		19,
+		20
+	],
+	"outputs": {
+		"mirror_motor": 40,
+	}
+}
