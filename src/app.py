@@ -15,13 +15,13 @@ class App(object):
 		gpio.setmode(gpio.BCM)
 
 		gpio.setup(23, gpio.OUT)
+		gpio.setup(4, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 	
 	def run(self):
 		"""
 		run the main program loop
 		"""
-		status = True
+		
 		while True:
-			status = not status
-			gpio.output(23, status)
-			sleep(1)
+			gpio.output(23, gpio.input(4))
+			sleep(0.1)
