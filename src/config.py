@@ -1,7 +1,6 @@
 
 folder_path = "assets/audio/"
 
-
 filenames = [
 	"ahem_x.wav",
 	"applause2_x.wav",
