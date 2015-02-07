@@ -15,7 +15,7 @@ class App(object):
 		gpio.setmode(gpio.BCM)
 
 		gpio.setup(23, gpio.OUT)
-		gpio.setup(4, GPIO.IN, pull_up_down=gpio.PUD_UP)
+		gpio.setup(4, gpio.IN, pull_up_down=gpio.PUD_UP)
 	
 	def run(self):
 		"""
