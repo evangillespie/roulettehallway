@@ -16,7 +16,7 @@ class App(object):
 		gpio.setmode(gpio.BCM)
 
 		for pin in pins['doors']:
-			gpio.setup(p, gpio.IN, pull_up_down=gpio.PUD_UP)
+			gpio.setup(pin, gpio.IN, pull_up_down=gpio.PUD_UP)
 
 		for name, pin in pins['outputs'].iteritems():
 			gpio.setup(pin, gpio.OUT)
