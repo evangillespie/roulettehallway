@@ -25,7 +25,23 @@ class App(object):
 		"""
 		run the main program loop
 		"""
+		# init message
+		gpio.output(23, gpio.HIGH)
+		sleep(0.5)
+		gpio.output(23, gpio.LOW)
+		sleep(0.5)
+		gpio.output(23, gpio.HIGH)
+		sleep(0.5)
+		gpio.output(23, gpio.LOW)
+		sleep(0.5)
+
 		# infinite program loop
 		while True:
-			pass
-			sleep (1)
+			if gpio.input(pins['doors'][0]):
+				self.am.play(0)
+
+			sleep(1)
+			
+
+		# TODO: add an exit buttom
+		gpio.cleanup()
