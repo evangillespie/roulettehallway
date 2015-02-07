@@ -24,6 +24,11 @@ pins = {
 		20
 	],
 	"outputs": {
-		"mirror_motor": 40,
+		"mirror_motor1": 21,
+		"mirror_motor2": 22,
+		"head_servo": 12,
+		"gorilla_servo": 13,
+		"left_eye" : 23,
+		"right_eye": 24
 	}
 }
