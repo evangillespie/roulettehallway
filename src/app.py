@@ -37,10 +37,11 @@ class App(object):
 
 		# infinite program loop
 		while True:
-			if gpio.input(pins['doors'][0]):
-				self.am.play(0)
+			for index, door_pin in enumerate(pins['doors']):
+				if not gpio.input(door_pin):
+					self.am.play(index)
 
-			sleep(1)
+			sleep(0.1)
 			
 
 		# TODO: add an exit buttom
