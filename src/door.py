@@ -1,7 +1,7 @@
 
-from random import randint
+from random import choice, randint
 
-from .config import pins
+from .config import pins, audio_door_map
 import audio_manager as am
 
 
@@ -19,6 +19,8 @@ class Door(object):
 		self.pin = pins["doors"][door_number]
 		self.state = "closed"
 
+		self.audio_indexes = audio_door_map[door_number]
+
 
 	def is_open(self):
 		"""
@@ -27,7 +29,7 @@ class Door(object):
 		:return: boolean if the door is open
 		"""
 		# @TODO: get the real value from gpio
-		if randint(0, 10) == 10:
+		if randint(0, 100) === 100:
 			return True
 
 		return False
@@ -36,11 +38,12 @@ class Door(object):
 		"""
 		actions performed when the door is opened
 		"""
-		# @TODO: play a sound
 		# @TODO: get the actions to perform from the config and do some action
 		
 		if self.state == "closed":
 			self.state = "open"
+			self._play_sound()
+			self._perform_actions()
 			print "DOOR %s is open" % self.door_number
 
 
@@ -52,3 +55,16 @@ class Door(object):
 			self.state = "closed"
 			print "Just closed door %s" % self.door_number
 
+
+	def _play_sound(self):
+		"""
+		play a random sound associated with this door
+		"""
+		am.play(choice(self.audio_indexes))
+
+
+	def _perform_actions(self):
+		"""
+		perform any actions other than playing sound if they exist for this door
+		"""
+		pass
