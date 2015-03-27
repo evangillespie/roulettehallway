@@ -2,6 +2,8 @@
 from random import randint
 
 from .config import pins
+import .audio_manager as am
+
 
 __author__ = ("Evan Gillespie",)
 
@@ -37,8 +39,9 @@ class Door(object):
 		# @TODO: play a sound
 		# @TODO: get the actions to perform from the config and do some action
 		
-		self.state = "open"
-		print "DOOR %s is open" % self.door_number
+		if self.state == "closed":
+			self.state = "open"
+			print "DOOR %s is open" % self.door_number
 
 
 	def close(self):

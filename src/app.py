@@ -2,7 +2,7 @@ import RPi.GPIO as gpio
 from time import sleep
 
 from .config import pins
-from .audio_manager import AudioManager
+import .audio_manager as am
 from .door import Door
 
 __author__ = ("Evan Gillespie",)
@@ -12,7 +12,7 @@ class App(object):
 	"""
 
 	def __init__(self):
-		self.am = AudioManager()
+		am.init()
 
 		gpio.setmode(gpio.BCM)
 

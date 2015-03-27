@@ -5,33 +5,29 @@ from time import sleep
 
 __author__ = ('Evan Gillespie',)
 
+clips = []
 
-class AudioManager(object):
+def init():
 	"""
-	class for simply playing the audio files when triggered
+	load all the audio files into memory to be used later
 	"""
+	pygame.mixer.pre_init()
+	pygame.init()
 
-	def __init__(self):
-		"""
-		load all the audio files into memory to be used later
-		"""
-		pygame.mixer.pre_init()
-		pygame.init()
-
-		self.clips = []
-		for f in audio_filenames:
-			self.clips.append(
-				pygame.mixer.Sound(folder_path+f)
-			)
+	for f in audio_filenames:
+		clips.append(
+			pygame.mixer.Sound(folder_path+f)
+		)
 
 
-	def play(self, clip_index):
-		"""
-		play a particular audio clip
+def play(clip_index):
+	"""
+	play a particular audio clip
 
-		:param clip_index: index of the clip in question in the audio_filenames list
-		"""
-		self.clips[clip_index].play()
+	:param clip_index: index of the clip in question in the audio_filenames list
+	"""
+	clips[clip_index].play()
 
-	def get_num_clips(self):
-		return len(self.clips)
+
+def get_num_clips():
+	return len(clips)
