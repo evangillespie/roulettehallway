@@ -19,7 +19,7 @@ class AudioManager(object):
 		pygame.init()
 
 		self.clips = []
-		for f in filenames:
+		for f in audio_filenames:
 			self.clips.append(
 				pygame.mixer.Sound(folder_path+f)
 			)
@@ -29,7 +29,7 @@ class AudioManager(object):
 		"""
 		play a particular audio clip
 
-		:param clip_index: index number of the clip in question
+		:param clip_index: index of the clip in question in the audio_filenames list
 		"""
 		self.clips[clip_index].play()
 

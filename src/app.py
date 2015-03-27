@@ -3,6 +3,7 @@ from time import sleep
 
 from .config import pins
 from .audio_manager import AudioManager
+from .door import Door
 
 __author__ = ("Evan Gillespie",)
 
@@ -17,9 +18,12 @@ class App(object):
 
 		for pin in pins['doors']:
 			gpio.setup(pin, gpio.IN, pull_up_down=gpio.PUD_UP)
-
 		for name, pin in pins['outputs'].iteritems():
 			gpio.setup(pin, gpio.OUT)
+
+		self.doors = []
+		for i in range(8):
+			self.doors.append(Door(i))
 	
 	def run(self):
 		"""
@@ -37,12 +41,14 @@ class App(object):
 
 		# infinite program loop
 		while True:
-			for index, door_pin in enumerate(pins['doors']):
-				if not gpio.input(door_pin):
-					self.am.play(index)
+			for door in self.doors:
+				if door.is_open():
+					door.open()
+				else:
+					door.close()
 
 			sleep(0.1)
 			
 
-		# TODO: add an exit buttom
+		# TODO: add an exit button
 		gpio.cleanup()
