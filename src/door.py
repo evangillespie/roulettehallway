@@ -1,4 +1,4 @@
-
+import RPi.GPIO as gpio
 from random import choice, randint
 
 from .config import pins, audio_door_map
@@ -28,8 +28,7 @@ class Door(object):
 
 		:return: boolean if the door is open
 		"""
-		# @TODO: get the real value from gpio
-		if randint(0, 100) === 100:
+		if gpio.input(self.pin):
 			return True
 
 		return False
