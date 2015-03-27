@@ -28,7 +28,7 @@ class Door(object):
 
 		:return: boolean if the door is open
 		"""
-		if gpio.input(self.pin):
+		if not gpio.input(self.pin):
 			return True
 
 		return False
