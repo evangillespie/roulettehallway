@@ -2,7 +2,7 @@ import RPi.GPIO as gpio
 from time import sleep
 
 from .config import pins
-import .audio_manager as am
+import audio_manager as am
 from .door import Door
 
 __author__ = ("Evan Gillespie",)

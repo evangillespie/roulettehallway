@@ -2,7 +2,7 @@
 from random import randint
 
 from .config import pins
-import .audio_manager as am
+import audio_manager as am
 
 
 __author__ = ("Evan Gillespie",)
