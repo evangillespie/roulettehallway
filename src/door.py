@@ -21,7 +21,6 @@ class Door(object):
 		self.state = "closed"
 
 		self.audio_indexes = audio_door_map[door_number]
-		self.
 
 
 	def is_open(self):
