@@ -28,6 +28,3 @@ def play(clip_index):
 	"""
 	clips[clip_index].play()
 
-
-def get_num_clips():
-	return len(clips)

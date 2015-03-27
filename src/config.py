@@ -12,6 +12,7 @@ pins = {
 		19,
 		20
 	],
+	# not really used. reference only
 	"outputs": {
 		"mirror_motor1": 21,
 		"mirror_motor2": 22,
