@@ -46,19 +46,19 @@ audio_door_map = [
 
 switch_door_map = [
 	# door 0
-	[]
+	[],
 	# door 1
-	[]
+	[],
 	# door 2
-	[pins['outputs']['mirror_motor1']]
+	[pins['outputs']['mirror_motor1']],
 	# door 3
-	[]
+	[],
 	# door 4
-	[pins['outputs']['mirror_motor2']]
+	[pins['outputs']['mirror_motor2']],
 	# door 5
-	[]
+	[],
 	# door 6
-	[]
+	[],
 	# door 7
 	[]
 ]
