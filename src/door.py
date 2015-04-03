@@ -73,7 +73,7 @@ class Door(object):
 			pio.output(p, gpio.HIGH)
 
 
-		def _switches_off(self):
+	def _switches_off(self):
 		"""
 		turn any digital switching pins for this door off
 		"""
