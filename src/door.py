@@ -2,7 +2,7 @@ import RPi.GPIO as gpio
 from random import choice, randint
 from time import sleep
 
-from .config import pins, audio_door_map
+from .config import pins, audio_door_map, switch_door_map
 import audio_manager as am
 
 
@@ -23,6 +23,7 @@ class Door(object):
 			self.state = "open"
 
 		self.audio_indexes = audio_door_map[door_number]
+		self.switch_pins = switch_door_map[door_number]
 
 
 	def is_open(self):
@@ -43,7 +44,7 @@ class Door(object):
 		if self.state == "closed":
 			self.state = "open"
 			self._play_sound()
-			#self._perform_actions()
+			self._switches_on()
 			print "DOOR %s is open" % self.door_number
 
 
@@ -53,6 +54,7 @@ class Door(object):
 		"""
 		if self.state == "open":
 			self.state = "closed"
+			self._switches_off()
 			print "Just closed door %s" % self.door_number
 
 
@@ -63,13 +65,18 @@ class Door(object):
 		am.play(choice(self.audio_indexes))
 
 
-	def _perform_actions(self):
+	def _switches_on(self):
 		"""
-		perform any actions other than playing sound if they exist for this door
+		turn any digital switching pins for this door on
 		"""
+		for p in self.switch_pins:
+			pio.output(p, gpio.HIGH)
+
+
+		def _switches_off(self):
 		"""
-		gpio.output(pins['outputs']['mirror_motor1'], gpio.HIGH)
-		sleep(10)
-		gpio.output(pins['outputs']['mirror_motor1'], gpio.LOW)
+		turn any digital switching pins for this door off
 		"""
-		pass
+		for p in self.switch_pins:
+			pio.output(p, gpio.LOW)
+

@@ -15,11 +15,7 @@ pins = {
 	# not really used. reference only
 	"outputs": {
 		"mirror_motor1": 21,
-		"mirror_motor2": 22,
-		"head_servo": 12,
-		"gorilla_servo": 13,
-		"left_eye_led" : 23,
-		"right_eye_led": 24
+		"mirror_motor2": 22
 	}
 }
 
@@ -46,4 +42,23 @@ audio_door_map = [
 	range(24, 28),
 	# door 7
 	range(28, 35)
+]
+
+switch_door_map = [
+	# door 0
+	[]
+	# door 1
+	[]
+	# door 2
+	[pins['outputs']['mirror_motor1']]
+	# door 3
+	[]
+	# door 4
+	[pins['outputs']['mirror_motor2']]
+	# door 5
+	[]
+	# door 6
+	[]
+	# door 7
+	[]
 ]
