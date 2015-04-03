@@ -15,8 +15,10 @@ def init():
 	pygame.init()
 
 	for f in audio_filenames:
+		path = folder_path+f
+		print "adding %s" % path
 		clips.append(
-			pygame.mixer.Sound(folder_path+f)
+			pygame.mixer.Sound(path)
 		)
 
 

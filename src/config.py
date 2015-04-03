@@ -1,7 +1,7 @@
 import os
 
 os.path.dirname(os.path.realpath(__file__))
-folder_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + "assets/audio/"
+folder_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__))) + "/assets/audio/"
 
 pins = {
 	"doors": [
