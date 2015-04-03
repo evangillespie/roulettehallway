@@ -29,16 +29,6 @@ class App(object):
 		"""
 		run the main program loop
 		"""
-		# init message
-		gpio.output(23, gpio.HIGH)
-		sleep(0.5)
-		gpio.output(23, gpio.LOW)
-		sleep(0.5)
-		gpio.output(23, gpio.HIGH)
-		sleep(0.5)
-		gpio.output(23, gpio.LOW)
-		sleep(0.5)
-
 		# infinite program loop
 		while True:
 			for door in self.doors:
@@ -47,7 +37,7 @@ class App(object):
 				else:
 					door.close()
 
-			sleep(0.1)
+			sleep(0.01)
 			
 
 		# TODO: add an exit button

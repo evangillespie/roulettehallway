@@ -19,9 +19,10 @@ class Door(object):
 		self.door_number = door_number
 		self.pin = pins["doors"][door_number]
 		self.state = "closed"
+		if self.is_open():
+			self.state = "open"
 
 		self.audio_indexes = audio_door_map[door_number]
-		self.
 
 
 	def is_open(self):
@@ -30,7 +31,7 @@ class Door(object):
 
 		:return: boolean if the door is open
 		"""
-		if not gpio.input(self.pin):
+		if gpio.input(self.pin):
 			return True
 
 		return False
@@ -42,7 +43,7 @@ class Door(object):
 		if self.state == "closed":
 			self.state = "open"
 			self._play_sound()
-			self._perform_actions()
+			#self._perform_actions()
 			print "DOOR %s is open" % self.door_number
 
 
@@ -66,6 +67,9 @@ class Door(object):
 		"""
 		perform any actions other than playing sound if they exist for this door
 		"""
+		"""
 		gpio.output(pins['outputs']['mirror_motor1'], gpio.HIGH)
 		sleep(10)
 		gpio.output(pins['outputs']['mirror_motor1'], gpio.LOW)
+		"""
+		pass
