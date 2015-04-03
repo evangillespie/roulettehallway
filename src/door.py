@@ -70,7 +70,7 @@ class Door(object):
 		turn any digital switching pins for this door on
 		"""
 		for p in self.switch_pins:
-			pio.output(p, gpio.HIGH)
+			gpio.output(p, gpio.HIGH)
 
 
 	def _switches_off(self):
@@ -78,5 +78,5 @@ class Door(object):
 		turn any digital switching pins for this door off
 		"""
 		for p in self.switch_pins:
-			pio.output(p, gpio.LOW)
+			gpio.output(p, gpio.LOW)
 
